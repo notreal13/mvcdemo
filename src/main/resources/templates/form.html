@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/master}" xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Form with validation</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container">
+        <form action="#" th:action="@{/form}" th:object="${personForm}" method="post">
+            <div class="form-group">
+                <label for="inputName">Name:</label>
+                <input class="form-control" type="text" id="inputName" name="name"/>
+                <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</p>
+            </div>
+            <div class="form-group">
+                <label for="inputAge">Age:</label>
+                <input class="form-control" type="text" id="inputAge" name="age"/>
+                <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</p>
+            </div>
+            <button type="submit" class="btn btn-dark">Submit</button>
+
+            <div th:if="${#fields.hasErrors('global')}">
+                <p class="h6">Global errors</p>
+                <ul>
+                    <li th:each="err : ${#fields.errors('global')}" th:text="${err}">Input is incorrect</li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark my-navbar" th:fragment="header">
+    <a class="navbar-brand" href="/">MVC demo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/greeting">Greeting</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/form">Form</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Actors
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/actor/all">All</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/actor/paginated">Paginated</a>
+                </div>
+            </li>
+        </ul>
+        <ul class="navbar-nav navbar-right ml-auto">
+            <div sec:authorize="!isAuthenticated()">
+                <a href="/login" class="btn btn-light my-2 my-sm-0" th:href="@{/login}">
+                    <i class="fa fa-sign-in"></i>
+                    &nbsp;Login
+                </a>
+            </div>
+
+            <div sec:authorize="isAuthenticated()">
+                <a class="btn btn-light" sec:authorize="isAuthenticated()" aria-hidden="true"
+                   onclick="document.getElementById('logoutForm').submit();">
+                    <i class="fa fa-sign-out"></i>
+                    &nbsp;Logout
+                </a>
+            </div>
+
+            <form style="visibility: hidden" id="logoutForm" method="post" action="#"
+                  th:action="@{/logout}"></form>
+        </ul>
+    </div>
+
+</nav>
+
+</body>
+</html>

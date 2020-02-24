@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/master}" xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Login</title>
+</head>
+<body>
+<div layout:fragment="header"></div>
+
+<div layout:fragment="content">
+    <div class="text-center">
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+
+        <form class="login-form" th:action="@{/login}" method="post">
+            <h1 class="h3 mb-3 font-weight-normal">Please login</h1>
+            <label for="inputUsername" class="sr-only">Email address</label>
+            <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required
+                   autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password"
+                   required>
+
+            <div class="d-flex justify-content-start">
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="remember-me"> Remember me
+                    </label>
+                </div>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html layout:decorate="~{fragments/master}" xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>all actors</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Last Update</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${actors.empty}">
+            <td colspan="4"> No Actors Available</td>
+        </tr>
+        <tr th:each="actor : ${actors}">
+            <td class="table-dark"><span th:text="${actor.actorId}"> Id </span></td>
+            <td><span th:text="${actor.firstName}"> First Name </span></td>
+            <td><span th:text="${actor.lastName}"> Last  Name </span></td>
+            <td><span th:text="${actor.lastUpdate}"> Last Update </span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
