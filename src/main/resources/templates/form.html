@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html layout:decorate="~{fragments/master}" xmlns:layout="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.w3.org/1999/xhtml">
+<html th:replace="~{fragments/master :: layout(~{::title}, ~{::section})}"
+      xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <title>Form with validation</title>
 </head>
 <body>
-<div layout:fragment="content">
+<section>
     <div class="container">
         <form action="#" th:action="@{/form}" th:object="${personForm}" method="post">
             <div class="form-group">
@@ -28,6 +28,6 @@
             </div>
         </form>
     </div>
-</div>
+</section>
 </body>
 </html>

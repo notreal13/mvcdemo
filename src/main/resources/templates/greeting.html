@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
-<html layout:decorate="~{fragments/master}" xmlns:layout="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.w3.org/1999/xhtml">
+<html th:replace="~{fragments/master :: layout(~{::title}, ~{::section})}"
+      xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <title>Greeting</title>
 </head>
 <body>
 
-<div layout:fragment="content">
+<section>
     <div class="jumbotron">
         <p class="h3" th:text="'Hello, ' + ${name} + '!'"></p>
         <p class="small">Try to add query param '?name=Master'</p>
@@ -14,13 +14,13 @@
         <p class="h5" th:inline="text">remote user: [[${#httpServletRequest.remoteUser}]]</p>
     </div>
 
-    <dic class="container">
+    <div class="container">
         <p class="h3">
             This number updatable via ajax call to backend:
             <span id="ajaxNumber" th:text="${num}">span</span>
         </p>
         <button class="btn btn-dark" onclick="updateNumber()">Update number</button>
-    </dic>
-</div>
+    </div>
+</section>
 </body>
 </html>

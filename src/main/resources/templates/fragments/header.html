@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.w3.org/1999/xhtml">
+      xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
 <head>
+    <title>header</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark my-navbar" th:fragment="header">
@@ -34,23 +35,25 @@
             </li>
         </ul>
         <ul class="navbar-nav navbar-right ml-auto">
-            <div sec:authorize="!isAuthenticated()">
-                <a href="/login" class="btn btn-light my-2 my-sm-0" th:href="@{/login}">
-                    <i class="fa fa-sign-in"></i>
-                    &nbsp;Login
-                </a>
-            </div>
+            <li>
+                <div sec:authorize="!isAuthenticated()">
+                    <a href="/login" class="btn btn-light my-2 my-sm-0" th:href="@{/login}">
+                        <i class="fa fa-sign-in"></i>
+                        &nbsp;Login
+                    </a>
+                </div>
 
-            <div sec:authorize="isAuthenticated()">
-                <a class="btn btn-light" sec:authorize="isAuthenticated()" aria-hidden="true"
-                   onclick="document.getElementById('logoutForm').submit();">
-                    <i class="fa fa-sign-out"></i>
-                    &nbsp;Logout
-                </a>
-            </div>
+                <div sec:authorize="isAuthenticated()">
+                    <a class="btn btn-light" sec:authorize="isAuthenticated()" aria-hidden="true"
+                       onclick="document.getElementById('logoutForm').submit();">
+                        <i class="fa fa-sign-out"></i>
+                        &nbsp;Logout
+                    </a>
+                </div>
 
-            <form style="visibility: hidden" id="logoutForm" method="post" action="#"
-                  th:action="@{/logout}"></form>
+                <form style="visibility: hidden" id="logoutForm" method="post" action="#"
+                      th:action="@{/logout}"></form>
+            </li>
         </ul>
     </div>
 

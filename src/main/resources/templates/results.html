@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html layout:decorate="~{fragments/master}" xmlns:layout="http://www.w3.org/1999/xhtml">
+<html th:replace="~{fragments/master :: layout(~{::title}, ~{::section})}"
+      xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <title>Form results</title>
 </head>
 <body>
-<div layout:fragment="content">
+<section>
     <div class="jumbotron">
         <p class="h2">
             Congratulations! You are old enough to use this site.
         </p>
     </div>
-</div>
+</section>
 </body>
 </html>

@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html layout:decorate="~{fragments/master}" xmlns:layout="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
 
-<head>
+<head th:replace="fragments/master :: common_header(~{::title})">
     <title>Login</title>
 </head>
 <body>
-<div layout:fragment="header"></div>
-
-<div layout:fragment="content">
+<section>
     <div class="text-center">
         <div th:if="${param.error}">
             Invalid username and password.
@@ -37,6 +34,6 @@
             <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
         </form>
     </div>
-</div>
+</section>
 </body>
 </html>

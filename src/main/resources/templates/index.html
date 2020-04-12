@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
-<html layout:decorate="~{fragments/master}" xmlns:layout="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.w3.org/1999/xhtml">
+<html th:replace="~{fragments/master :: layout(title=~{::title}, content=~{::section})}"
+      xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <title>Getting Started: Serving Web Content</title>
 </head>
 <body>
 
-<div layout:fragment="content">
+<section>
     <div class="container">
         <p class="h2">Welcome to the Spring MVC Quickstart application!</p>
         <p class="h4">This demo use</p>
@@ -22,7 +22,7 @@
             </li>
         </ul>
     </div>
-</div>
+</section>
 
 </body>
 </html>
