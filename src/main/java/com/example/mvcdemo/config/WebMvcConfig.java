@@ -1,7 +1,5 @@
 package com.example.mvcdemo.config;
 
-import nz.net.ultraq.thymeleaf.LayoutDialect;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.format.datetime.standard.DateTimeFormatterRegistrar;
@@ -15,11 +13,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/results").setViewName("results");
-    }
-
-    @Bean
-    public LayoutDialect layoutDialect() {
-        return new LayoutDialect();
     }
 
     @Override
