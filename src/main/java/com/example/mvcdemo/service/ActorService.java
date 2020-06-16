@@ -24,7 +24,7 @@ public class ActorService {
     public List<Actor> getBunchActors(Actor lastActor, Integer rowCount) {
         String lastName = StringUtils.isEmpty(lastActor.getLastName()) ? "" : lastActor.getLastName();
         Integer id = lastActor.getActorId() == null ? 0 : lastActor.getActorId();
-        log.info("Getting actors with lastName: {}, id: {}, rowCount: {}", lastActor, id, rowCount);
+        log.info("Getting actors with lastName: {}, id: {}, rowCount: {}", lastName, id, rowCount);
 
         return actorRepository.getPageActors(lastName, id, rowCount);
     }
