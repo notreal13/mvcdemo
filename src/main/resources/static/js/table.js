@@ -5,7 +5,7 @@ var rowCount = 10;
 $( document ).ready(function() {
     tbl = $('#paginatedTable').DataTable({
         'paging': false,
-        'order': [[2, "desc"]],
+        'order': [[2, "asc"]],
         'info': false,
         'columns': [
             {data: 'actorId'},

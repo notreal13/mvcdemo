@@ -3,7 +3,7 @@ function updateNumber() {
     xhr.open("GET", "greeting/ajax-number");
     xhr.send();
     xhr.onload = function() {
-    if (xhr.status == 200) {
+    if (xhr.status === 200) {
             document.getElementById("ajaxNumber").outerHTML = xhr.responseText;
         }
     }
