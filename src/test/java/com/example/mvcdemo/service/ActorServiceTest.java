@@ -19,7 +19,7 @@ class ActorServiceTest {
 
     @Test
     void shouldGetBatchOfActors() {
-        List<Actor> actors = new ArrayList<>(actorService.getBunchActors(new Actor(), 3));
+        List<Actor> actors = new ArrayList<>(actorService.getBunchActors(new Actor("", ""), 3));
         assertThat(actors).hasSize(3);
 
         actors.addAll(actorService.getBunchActors(actors.get(2), 2));

@@ -1,6 +1,6 @@
 var tbl;
 var lastRow = {};
-var rowCount = 10;
+var rowCount = 5;
 
 $( document ).ready(function() {
     tbl = $('#paginatedTable').DataTable({
